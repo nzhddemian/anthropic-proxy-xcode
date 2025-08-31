@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Function to delete a directory if it exists
+delete_dir() {
+    if [ -d "$1" ]; then
+        echo "Deleting $1"
+        rm -rf "$1"
+    else
+        echo "$1 does not exist"
+    fi
+}
+
+# Clean project build directories
+delete_dir "./app/build"
+delete_dir "./build"
+
+# Clean Gradle caches
+delete_dir "$HOME/.gradle/caches"
+delete_dir "$HOME/.gradle/daemon"
+delete_dir "$HOME/.gradle/native"
+delete_dir "$HOME/.gradle/notifications"
+delete_dir "$HOME/.gradle/wrapper/dists"
+
+# Clean Android Studio caches
+delete_dir "$HOME/.android/build-cache"
+delete_dir "$HOME/.android/cache"
+delete_dir "$HOME/.android/avd"
+
+# Clean IntelliJ IDEA/Android Studio system directories
+delete_dir "$HOME/.IdeaIC*/system"
+delete_dir "$HOME/.AndroidStudio*/system"
+
+# Clean local Gradle wrapper
+delete_dir "./gradle/wrapper/dists"
+
+echo "Cleanup completed."

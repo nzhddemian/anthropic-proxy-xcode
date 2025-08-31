@@ -1,0 +1,20 @@
+#!/bin/bash
+
+che ()
+{
+  rm -rf ~/Library/Containers/com.apple.CoreDevice.CoreDeviceService/Data/Library/Caches/* 
+  echo "Cleanup completed. for  ~/Library/Containers/com.apple.CoreDevice.CoreDeviceService/Data/Library/Caches/!!!"
+  rm -rf ~/Library/Containers/com.docker.docker/data/vms/*
+  echo "Cleanup completed. for  ~/Library/Containers/com.docker.docker/data/vms/!!!"
+  rm -rf ~/Library/Developer/Xcode/DerivedData/*
+  echo "Cleanup completed. for ~/Library/Developer/Xcode/DerivedData/!!!"
+  rm -rf  ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices/*
+  echo "Cleanup completed. for  ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices/!!!"
+  rm -rf ~/Library/Developer/CoreSimulator/Caches/*
+  echo "Cleanup completed. for  ~/Library/Developer/CoreSimulator/Caches/!!!"
+  rm -rf ~/Library/Developer/CoreSimulator/Devices/*
+  echo "Cleanup completed. for  ~/Library/Developer/CoreSimulator/Devices/!!!"
+  rm -rf ~/Library/Caches/*	
+  echo "Cleanup completed. ~/Library/Caches/!!!"
+}
+che

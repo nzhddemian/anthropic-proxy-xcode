@@ -1,0 +1,28 @@
+/Users/demian/Movies/bashTest/folder/2.m4v
+
+
+#for i in *.mkv; do ffmpeg -i "$i" "${i%.*}.m4v"; done
+ for i in *.mkv ; do ffmpeg -i *.mkv -c copy "$i".m4v; done
+ffmpeg -i 1.mkv -c copy 2.m4v
+
+
+for i in *.mkv ; do ffmpeg -i *.mkv /Users/demian/Movies/bashTest/folder/"$i".m4v; done
+
+for i in *.mkv ;do echo "$i" ;done
+
+for i in *.mkv; do name=`echo "$i" | cut -d'.' -f1`;echo "$name"; ffmpeg -i "$i" /Users/demian/Movies/bashTest/folder/"${name}.m4v"; done
+
+ffmpeg -ss 00:00:30.0 -i 1.mkv -c copy -t 00:00:10.0 output.m4v
+
+
+
+/Users/demian/Movies/bashTest/folder/1.mkv
+
+Garri.avi
+
+ffmpeg -i Little.Buddha.mkv Little.Buddha.m4v
+Sherlock
+for i in *.mkv; do name=`echo "$i" | cut -d'.' -f1`;echo "$name"; ffmpeg -i "$i" /Users/demian/Movies/Gora.Samocvetov.54.serii.DVDRip.x264.ac3-BR/m4v/"${name}.m4v"; done
+
+
+/Users/demian/Movies/Gora.Samocvetov.54.serii.DVDRip.x264.ac3-BR/m4v

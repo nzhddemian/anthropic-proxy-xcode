@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Set the input directory containing the images
+input_dir="$(cd "$(dirname "$0")" && pwd)"
+
+# Set the desired width and height for the resized images
+read -p "Enter the desired width: " width
+read -p "Enter the desired height: " height
+
+
+# Use mogrify to resize all images in the directory
+mogrify -resize "${width}x${height}" "$input_dir"/*.jpg

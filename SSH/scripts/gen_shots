@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Directories for input and output
+INPUT_DIR="input_images"
+OUTPUT_DIR_7="output_7_inch"
+OUTPUT_DIR_10="output_10_inch"
+
+# Ensure input and output directories exist
+mkdir -p "$INPUT_DIR" "$OUTPUT_DIR_7" "$OUTPUT_DIR_10"
+
+# Validate ImageMagick installation
+if ! command -v convert &> /dev/null; then
+    echo "ImageMagick is not installed. Please install it and try again."
+    exit 1
+fi
+
+# Resize requirements
+RESIZE_7_INCH="1024x576" # Adjust to a valid 16:9 or 9:16 resolution
+RESIZE_10_INCH="1920x1080" # Adjust to a valid 16:9 or 9:16 resolution
+
+# Processing images
+for IMAGE in "$INPUT_DIR"/*.{png,jpg,jpeg}; do
+    if [[ -f "$IMAGE" ]]; then
+        BASENAME=$(basename "$IMAGE")
+        
+        # Generate 7-inch screenshot
+        convert "$IMAGE" -resize "$RESIZE_7_INCH^" -gravity center -extent "$RESIZE_7_INCH" \
+            "$OUTPUT_DIR_7/7_inch_$BASENAME"
+        echo "Generated 7-inch screenshot: $OUTPUT_DIR_7/7_inch_$BASENAME"
+        
+        # Generate 10-inch screenshot
+        convert "$IMAGE" -resize "$RESIZE_10_INCH^" -gravity center -extent "$RESIZE_10_INCH" \
+            "$OUTPUT_DIR_10/10_inch_$BASENAME"
+        echo "Generated 10-inch screenshot: $OUTPUT_DIR_10/10_inch_$BASENAME"
+    fi
+done
+
+echo "Processing complete. Check the $OUTPUT_DIR_7 and $OUTPUT_DIR_10 directories."
+
