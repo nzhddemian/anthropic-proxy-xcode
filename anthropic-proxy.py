@@ -15,6 +15,15 @@ def models():
         ]
     })
 
+@app.route('/v1/me', methods=['GET'])
+def me():
+    return jsonify({
+        "id": "user_123",
+        "object": "user",
+        "created": 1234567890,
+        "email": "user@example.com"
+    })
+
 @app.route('/v1/messages', methods=['POST'])
 def messages():
     headers = {
